@@ -16,6 +16,7 @@
   "dependencies": {
     "express": "^4.15.2",
     "git": "^0.1.5",
+    "gp": "^0.0.1",
     "pkill": "^2.0.0"
   },
   "devDependencies": {
