@@ -1,29 +1,25 @@
 pipeline {
-    agent any
+    agent none
 
     stages {
-        stage ('Install npm') {
+        stage ('build') {
             steps {
-                echo 'Install npm'
-                bat 'npm install'
+                npm install
             }
         }
-        stage ('Unit-test') {
+        stages ('Unit-test') {
             steps {
-                echo 'Unit-test'
-                bat 'npm run unit-test'
+                npm run unit-test
             }
         }
-        stage ('Integration test') {
-            when {
-                anyOf{
-                    branch 'main'
-                    branch 'develop'
-                }
-            }
+        stages('Integration-test') {
             steps {
-                echo 'Integration test'
-                bat 'npm run integration-test'
+                npm run integration-test
+}
+}
+stages('e2e-tests'){
+steps {
+sh ./e2e-test.sh
             }
         }
     }
