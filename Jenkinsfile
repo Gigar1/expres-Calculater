@@ -1,20 +1,20 @@
 pipeline {
     agent none
     stages {
-        stage('Backend') {
+        stage('Back-end') {
             agent {
-                docker{image 'maven:3.8.1-adoptopenjdk-11'}
+                docker { image 'maven:3.8.1-adoptopenjdk-11' }
             }
 	    steps{
-                echo 'Backend...'
                 sh 'mvn --version'
             }
         }
         stage ('Frontend') {
-            agent {dockerfile true }
+            agent{ 
+		docker { image 'node:14-alpine' }
+		}
             steps {
-                echo 'Frontend...'
-                sh 'svn --version'
+                
 		sh 'node --version'
             }
         }
