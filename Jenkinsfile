@@ -12,15 +12,11 @@ pipeline {
             }
         }
         stage ('Frontend') {
-            agent {
-                docker { dockerfile true }
-            }
+            agent {dockerfile true }
             steps {
                 echo 'Frontend...'
                 sh 'svn --version'
 		sh 'node --version'
             }
         }
-    }
-}
 
