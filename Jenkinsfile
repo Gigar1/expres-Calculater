@@ -1,4 +1,3 @@
-
 pipeline {
     agent none
 
@@ -12,6 +11,7 @@ pipeline {
                 sh 'mvn --version'
             }
         }
+}
         stage ('Frontend') {
             agent {dockerfile true }
             steps {
@@ -20,5 +20,3 @@ pipeline {
 		sh 'node --version'
             }
         }
-
-}
