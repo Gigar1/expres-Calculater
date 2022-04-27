@@ -1,29 +1,24 @@
 pipeline {
-    agent any
+    agent none
 
     stages {
-        stage ('Install npm') {
+        stage ('Backend') {
             steps {
-                echo 'Install npm'
-                bat 'npm install'
+                docker{image 'maven:3.8.1-adoptopenjdk-11'}
+            }
+	    steps{
+                echo 'Backend...'
+                sh 'mvn --version'
             }
         }
-        stage ('Unit-test') {
-            steps {
-                echo 'Unit-test'
-                bat 'npm run unit-test'
-            }
-        }
-        stage ('Integration test') {
-            when {
-                anyOf{
-                    branch 'main'
-                    branch 'develop'
-                }
+        stage ('Frontend') {
+            agent {
+                docker { dockerfile true }
             }
             steps {
-                echo 'Integration test'
-                bat 'npm run integration-test'
+                echo 'Frontend...'
+                sh 'svn --version'
+		sh 'node --version'
             }
         }
     }
