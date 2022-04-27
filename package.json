@@ -11,7 +11,7 @@
     "integration-test": "c:/Users/PC1/Desktop/DEVOPS/express-calculator/express-calculator/node_modules/.bin/jest src/__tests__/integration",
     "e2e-test": "wait-on http://localhost:3000 && c:/Users/PC1/Desktop/DEVOPS/express-calculator/express-calculator/node_modules/.bin/jest src/__tests__/e2e"
 
-},
+  },
   "author": "Patrik Nygren",
   "license": "ISC",
   "dependencies": {
@@ -31,7 +31,7 @@
   },
   "jest": {
     "transform": {
-    "^.+\\.jsx?$": "babel-jest"
+      "^.+\\.jsx?$": "babel-jest"
     }
   }
 }
