@@ -1,19 +1,29 @@
 pipeline {
     agent any
+
     stages {
-        stage('build') {
+        stage ('Install npm') {
             steps {
-               sh 'npm install'
+                echo 'Install npm'
+                bat 'npm install'
             }
         }
-        stage('Unit-test') {
+        stage ('Unit-test') {
             steps {
-                sh 'npm run unit-test'
+                echo 'Unit-test'
+                bat 'npm run unit-test'
             }
         }
-        stage('Integration-test') {
+        stage ('Integration test') {
+            when {
+                anyOf{
+                    branch 'main'
+                    branch 'develop'
+                }
+            }
             steps {
-                sh 'npm run integration-test'
+                echo 'Integration test'
+                bat 'npm run integration-test'
             }
         }
     }
