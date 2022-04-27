@@ -4,17 +4,17 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                npm install
+               sh ' npm install'
             }
         }
         stage('Unit-test') {
             steps {
-                npm run unit-test
+                sh 'npm run unit-test'
             }
         }
         stage('Integration-test') {
             steps {
-                npm run integration-test
+                sh 'npm run integration-test'
 }
 }
 stage('e2e-tests'){
