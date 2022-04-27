@@ -1,10 +1,9 @@
 pipeline {
     agent any
-
     stages {
         stage('build') {
             steps {
-               sh ' npm install'
+               sh 'npm install'
             }
         }
         stage('Unit-test') {
@@ -15,11 +14,11 @@ pipeline {
         stage('Integration-test') {
             steps {
                 sh 'npm run integration-test'
-}
-}
-stage('e2e-tests'){
-steps {
-sh './e2e-test.sh'
+            }
+        }
+        stage('e2e-tests'){
+             steps {
+                sh './e2e-test.sh'
             }
         }
     }
