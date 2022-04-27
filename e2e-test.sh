@@ -1,9 +1,8 @@
 #!/bin/bash
 
-set -m
+set -e
 
-npm run start >/dev/null 2>&1 &
-NODE_PID=$!
-npm run e2e-test
-kill $NODE_PID
+nohub npm run start >/dev/null 2>&1 &
+wait-on http://localhost:3000 && npm run e2e-test
+kill $!
 pkill -f geckodriver
