@@ -1,6 +1,5 @@
 pipeline {
     agent any
-
     stages {
         stage ('build') {
             steps {
@@ -16,8 +15,8 @@ pipeline {
             steps {
                 sh 'npm run integration-test'
 
+	        }
 	    }
-	}
 	stage('e2e-test'){
 	    steps {
 		sh './e2e-test.sh'
