@@ -14,8 +14,9 @@
   "author": "Patrik Nygren",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.15.2"
-    
+    "express": "^4.15.2",
+    "geckodriver": "^3.0.1",
+    "nohup": "^0.1.0"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.14.1",
