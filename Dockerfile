@@ -1,5 +1,13 @@
-From node:14-apline
+From node:14
 
-RUN apk add -U subversion
+WORKDIR /user/src/app
 
+COPY package*.json ./
 
+RUN npm install --only=prod
+
+COPY . . 
+
+EXPOSE 3000
+
+CMD [ "node", "app.js" ]

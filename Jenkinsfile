@@ -24,6 +24,15 @@ pipeline {
             steps {
                 echo 'Integration test'
                 bat 'npm run integration-test'
+
+            stage ('push-image')
+                when {
+                 branch 'main'
+              }
+              docker.withRegistry('https://registry.hub.docker.com', 'dockerhub')
+                 def image = docker.build("gigarkhalil/express-calculator")
+                image.push()
+                 
             }
         }
     }
