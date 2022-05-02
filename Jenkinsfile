@@ -25,7 +25,6 @@ pipeline {
                 echo 'Integration test'
                 bat 'npm run integration-test'
 		  }
-		}
             stage ('delivery-image')
                 when {
                  branch 'main'
