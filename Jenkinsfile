@@ -24,6 +24,7 @@ pipeline {
             steps {
                 echo 'Integration test'
                 bat 'npm run integration-test'
+                 }
 		  }
             stage ('delivery-image')
                 when {
@@ -34,7 +35,7 @@ pipeline {
                  docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
                   def image = docker.build("gigarkhalil/express-calculator")
                   image.push("${env.BUILD_ID}")   
-}
+
              }   
                  
             }
