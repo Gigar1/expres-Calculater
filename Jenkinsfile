@@ -31,11 +31,10 @@ pipeline {
                  branch 'main'
               }
              steps {
-             script {
-              docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
-                 def image = docker.build("gigarkhalil/express-calculator")
-                image.push("${env.BUILD_ID}")
-                    
+               script {
+                 docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
+                  def image = docker.build("gigarkhalil/express-calculator")
+                  image.push("${env.BUILD_ID}")   
              }   
                  
             }
