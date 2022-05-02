@@ -36,7 +36,7 @@ pipeline {
                  def image = docker.build("gigarkhalil/express-calculator")
                 image.push("${env.BUILD_ID}")
                     
-                
+             }   
                  
             }
         }
