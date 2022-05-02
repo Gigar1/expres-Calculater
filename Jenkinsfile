@@ -2,33 +2,28 @@ pipeline {
     agent any
 
     stages {
-        stage('Install npm') {
+        stage ('Install npm') {
             steps {
-                sh 'npm install'
-                }
+                echo 'Install npm'
+                bat 'npm install'
             }
-        stage('Unit-test') {
+        }
+        stage ('Unit-test') {
             steps {
-                sh 'npm run unit-test'
-                }
+                echo 'Unit-test'
+                bat 'npm run unit-test'
             }
-        stage('Integration test') {
+        }
+        stage ('Integration test') {
             when {
                 anyOf{
-                    branch 'develop'
                     branch 'main'
+                    branch 'develop'
                 }
             }
             steps {
-                sh 'npm run integration-test'
-	            }
-	        }
-	    stage('e2e-tests')
-		    when{
-		        branch 'main'
-		    }
-		ateps{
-		        sh './e2e-test.sh'
+                echo 'Integration test'
+                bat 'npm run integration-test'
             }
         }
     }
