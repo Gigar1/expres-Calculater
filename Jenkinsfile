@@ -38,9 +38,8 @@ pipeline {
                 echo 'Pushing to docker hub.....'
                 bat 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
                 bat 'docker push gigarkhalil/express-calculator:latest'
-   
-            }
-        }
+                 
+           }
          }
          stage ('deploy-to-heroku'){
                when {
@@ -52,6 +51,7 @@ pipeline {
           steps {
               bat 'heroku container:push web'
               bat 'heroku container:release web'
-          }
-    }
+           }
+       }
+   }
 }
