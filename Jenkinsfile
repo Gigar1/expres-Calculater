@@ -49,8 +49,8 @@ pipeline {
               HEROKU_API_KEY = credentials('heroku_token')
           }
           steps {
-              sh 'heroku container:push web --app=fierce-brushlands-12801'
-              sh 'heroku container:release web'
+              bat 'heroku container:push web --app=fierce-brushlands-12801'
+              bat 'heroku container:release web'
            }
        }
    }
