@@ -53,4 +53,3 @@ pipeline {
               bat 'heoku container:push web'
               bat 'heoku container:release web'
           }
-}
