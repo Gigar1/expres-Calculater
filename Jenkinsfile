@@ -42,7 +42,7 @@ pipeline {
             }
         }
          }
-         stage ('deploy-to-heroku')
+         stage ('deploy-to-heroku'){
                when {
                 branch 'main'
                }
