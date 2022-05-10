@@ -46,8 +46,8 @@ pipeline {
                when {
                 branch 'main'
                }
-          enviroment{
-              HEROKU_API_KEY=credentials('heroku_token')
+          enviroment {
+              HEROKU_API_KEY = credentials('heoku_token')
           }
           steps {
               bat 'heoku container:push web'
