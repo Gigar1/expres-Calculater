@@ -54,5 +54,3 @@ pipeline {
               bat 'heoku container:release web'
           }
 }
-}
-}
