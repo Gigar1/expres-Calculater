@@ -45,7 +45,7 @@ pipeline {
                when {
                 branch 'main'
                }
-          enviroment {
+          environment {
               HEROKU_API_KEY = credentials('heroku_token')
           }
           steps {
