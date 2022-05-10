@@ -49,8 +49,8 @@ pipeline {
               HEROKU_API_KEY=credentials('heroku_token')
           }
           steps {
-              bat 'heroku container:push web'
-              bat 'heroku container:release web'
+              sh 'heroku container:push web'
+              sh 'heroku container:release web'
            }
        }
    }
