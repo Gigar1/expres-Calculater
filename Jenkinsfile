@@ -49,7 +49,7 @@ pipeline {
               HEROKU_API_KEY=credentials('heroku_token')
           }
           steps {
-              echo 'push and  release'
+              echo 'push and release'
               bat 'heroku container:push web'
               bat 'heroku container:release web'
            }
