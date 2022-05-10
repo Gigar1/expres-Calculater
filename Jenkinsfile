@@ -46,10 +46,10 @@ pipeline {
                 branch 'main'
                }
           environment {
-              HEROKU_API_KEY = credentials('heroku_token')
+              HEROKU_API_KEY=credentials('heroku_token')
           }
           steps {
-              bat 'heroku container:push web --app=fierce-brushlands-12801'
+              bat 'heroku container:push web'
               bat 'heroku container:release web'
            }
        }
