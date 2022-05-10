@@ -41,17 +41,18 @@ pipeline {
    
             }
         }
-} 
+ 
          stage ('deploy-to-heroku')
                when {
                 branch 'main'
                }
           enviroment {
-              HEROKU_API_KEY = credentials('heroku-token')
+              HEROKU_API_KEY = credentials('heroku_token')
           }
           steps {
-              bat 'heoku container:push web'
-              bat 'heoku container:release web'
+              bat 'heroku container:push web'
+              bat 'heroku container:release web'
           }
     }
+}
 }
