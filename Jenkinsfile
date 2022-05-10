@@ -37,12 +37,10 @@ pipeline {
                 bat 'docker tag gigarkhalil/express-calculator:latest thienvocampus/express-calculator:latest'
                 echo 'Pushing to docker hub.....'
                 bat 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-                bat 'docker push gigarkhalil/express-calculator:latest'
-                 
+                bat 'docker push gigarkhalil/express-calculator:latest'      
            }
          }
          }
-    }
          stage ('deploy-to-heroku'){
                when {
                 branch 'main'
