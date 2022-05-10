@@ -27,15 +27,15 @@ pipeline {
                  }
 		  }
            
-            stage ('delivery-image'){
+            stage ('deliver-image'){
                 when {
                  branch 'main'
               }
              steps {
                script {
-                 docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
+                  docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
                   def image = docker.build("gigarkhalil/express-calculator")
-                  image.push("${BUILD_ID}")   
+                  image.push("$BUILD_ID")   
 
              }   
                  
