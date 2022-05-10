@@ -41,6 +41,7 @@ pipeline {
                  
            }
          }
+         }
          stage ('deploy-to-heroku'){
                when {
                 branch 'main'
@@ -53,5 +54,4 @@ pipeline {
               bat 'heroku container:release web'
            }
        }
-   }
-}
+   }}
