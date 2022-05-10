@@ -42,5 +42,16 @@ pipeline {
             }
         }
 } 
+         stage('deploy-to-heroku')
+          when {
+              branch 'main'
+          }
+          enviroment{
+              HEROKU_API_KEY=credentials('heroku_token')
+          }
+          step {
+              sh 'heoku container:push web'
+              sh 'heoku container:release web'
+          }
 }
 }
