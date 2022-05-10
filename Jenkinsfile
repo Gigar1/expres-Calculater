@@ -35,10 +35,10 @@ pipeline {
                script {
                   echo 'Creating docker image......'
                 bat 'docker build -t gigarkhalil/express-calculator:latest - < Dockerfile'
-                bat 'docker tag gigarkhalil/express-calculator:latest thienvocampus/express-calculator:latest' }
+                bat 'docker tag gigarkhalil/express-calculator:latest thienvocampus/express-calculator:latest'
                 echo 'Pushing to docker hub.....'
-                bat 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin' }
-                bat 'docker push gigarkhalil/express-calculator:latest'        }
+                bat 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+                bat 'docker push gigarkhalil/express-calculator:latest'
     }
 }
 }
