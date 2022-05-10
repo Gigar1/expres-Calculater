@@ -24,10 +24,9 @@ pipeline {
             steps {
                 echo 'Integration test'
                 bat 'npm run integration-test'
-                 }
-		  }
-           
-            stage ('deliver-image'){
+            }
+        }
+         stage ('deliver-image'){
                 when {
                  branch 'main'
               }
@@ -40,5 +39,7 @@ pipeline {
                 bat 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
                 bat 'docker push gigarkhalil/express-calculator:latest'
     }
-}
-}
+             }
+         }
+} 
+
