@@ -49,7 +49,7 @@ pipeline {
               HEROKU_API_KEY=credentials('heroku_token')
           }
           steps {
-              bat 'echo %PATH%'
+              bat 'echo SET PATH = %bin path%'
               bat 'heroku container:push web --app=fierce-brushlands-12801'
               bat 'heroku container:release web --app=fierce-brushlands-12801'
            }
