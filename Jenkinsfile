@@ -50,7 +50,7 @@ pipeline {
           }
           steps {
               bat 'echo SET PATH = C:/Users/PC1/Desktop/DEVOPS/express-calculator/express-calculator/Dockerfile'
-              bat 'heroku container:push web --app=fierce-brushlands-12801'
+              bat 'echo SET PATH = C:/Users/PC1/Desktop/DEVOPS/express-calculator/express-calculator/Dockerfile heroku container:push web --app=fierce-brushlands-12801'
               bat 'heroku container:release web --app=fierce-brushlands-12801'
            }
        }
