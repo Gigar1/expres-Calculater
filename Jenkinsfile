@@ -50,8 +50,8 @@ pipeline {
           }
           steps {
               echo 'push and release'
-              bat 'heroku container:push web'
-              bat 'heroku container:release web'
+              bat 'heroku container:push web --app=fierce-brushlands-12801'
+              bat 'heroku container:release web --app=fierce-brushlands-12801'
            }
        }
    }
